@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnionInvesto.Domain\OnionInvesto.Domain.csproj" />
+    <ProjectReference Include="..\OnionInvesto.Core\OnionInvesto.Core.csproj" />
+  </ItemGroup>
+</Project>

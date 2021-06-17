@@ -7,7 +7,7 @@ namespace OnionInvesto.Core.Models.Entities
     {
         public List<Investment> Investments { get; set; }
 
-        public BankDetail BankDetail { get; set; }
+        public BankEntity BankEntity { get; set; }
 
     }
 }

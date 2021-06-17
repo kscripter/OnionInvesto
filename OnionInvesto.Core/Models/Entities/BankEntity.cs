@@ -1,7 +1,7 @@
 ﻿using System;
 namespace OnionInvesto.Core.Models.Entities
 {
-    public class BankDetail
+    public class BankEntity
     {
 
         public Investor Investor { get; set; }

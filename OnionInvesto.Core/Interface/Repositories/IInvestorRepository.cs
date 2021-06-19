@@ -1,31 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using OnionInvesto.Core.Models.Entities;
+using System.Threading.Tasks;
+using OnionInvesto.Core.Entities;
+using OnionInvesto.Core.Repositories;
 
-namespace OnionInvesto.Core.Interface.Repository
+namespace OnionInvesto.Core.Repositories
 {
-    public interface IInvestorRepository
+    public interface IInvestorRepository: IRepository<Investor>
     {
-
-
-        public int CreateInvestor(Investor investor);
-
-
-        public Investor FindByEmail(string email);
-
-
-
-        public Investor GetInvestor(int id);
-
-        public Investor FindById(int id);
-
-        public Investor AddInvestor(Investor investor);
-
-        public List<Investor> GetAll();
-
-        public void DeleteInvestor(int id);
-
-        public Investor UpdateInvestor(Investor investor);
-
+        Task<Investor> FindByEmail(string email);
     }
 }

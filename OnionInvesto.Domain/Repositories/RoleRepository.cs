@@ -1,18 +1,16 @@
 ﻿using System;
-using OnionInvesto.Core.Interface.Repository;
+using OnionInvesto.Core.Entities;
+using OnionInvesto.Core.Repositories;
 using OnionInvesto.Data.Context;
 
-namespace OnionInvesto.Core.Domain.Repository
+namespace OnionInvesto.Domain.Repositories
 {
-    public class RoleRepository : IRoleRepository
+    public class RoleRepository : BaseRepository<Role>, IRoleRepository
     {
-
-        private readonly InvestoContext _context;
-
 
         public RoleRepository(InvestoContext context)
         {
-            _context = context;
+            DbContext = context;
         }
 
 

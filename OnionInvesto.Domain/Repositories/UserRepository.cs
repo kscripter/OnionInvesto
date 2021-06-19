@@ -1,63 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using OnionInvesto.Core.Interface.Repository;
-using OnionInvesto.Core.Models.Entities;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using OnionInvesto.Core.Entities;
+using OnionInvesto.Core.Repositories;
 using OnionInvesto.Data.Context;
 
-namespace OnionInvesto.Core.Domain.Repository
+namespace OnionInvesto.Domain.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        private readonly InvestoContext _context;
 
         public UserRepository(InvestoContext context)
         {
-            _context = context;
+            DbContext = context;
         }
 
-        public User AddInvestor(User user)
+        public async Task<User> FindByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await DbContext.Users.SingleOrDefaultAsync(e => e.Email == email);
         }
-
-        public int CreateUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User FindByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User FindById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public User GetDetails(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User GetInvestor(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User UpdateUser(User user)
-        {
-            throw new NotImplementedException();
-        }
+    }
     }
 }

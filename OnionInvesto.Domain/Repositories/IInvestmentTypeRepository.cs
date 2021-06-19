@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using OnionInvesto.Core.Entities;
 using OnionInvesto.Core.Repositories;
 
-namespace OnionInvesto.Core.Repositories
+namespace OnionInvesto.Domain.Repositories
 {
-    public interface IUserRepository: IRepository<User>
+    public interface IInvestmentTypeRepository: IRepository<InvestmentType>
     {
-
-        public Task<User> FindByEmail(string email);
-
-
     }
 }

@@ -5,14 +5,11 @@ namespace OnionInvesto.Core.Entities
 {
     public class User : BaseEntity
     {
-
         public string Email { get; set; }
 
         public string PasswordHash { get; set; }
 
-        public string HashSalt { get; set; }
-
-        List<Role> Roles { get; set; }
+        public IList<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
-namespace OnionInvesto.Core.Interface.Repository
+using OnionInvesto.Core.Entities;
+
+namespace OnionInvesto.Core.Repositories
 {
-    public interface IRoleRepository
+    public interface IRoleRepository: IRepository<Role>
     {
     }
 }

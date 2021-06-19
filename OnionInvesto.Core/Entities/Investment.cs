@@ -1,8 +1,11 @@
 ﻿using System;
+using OnionInvesto.Core.Enum;
+
 namespace OnionInvesto.Core.Entities
 {
     public class Investment : BaseEntity
     {
+        public string Title { get; set; }
 
         public decimal AmountInvested { get; set; }
 
@@ -20,9 +23,9 @@ namespace OnionInvesto.Core.Entities
 
         public Guid InvestorId { get; set; }
 
-        public string DepositType { get; set; }
+        public DepositType DepositType { get; set; }
 
-        public bool InvestmentStatus { get; set; }
+        public InvestmentStatus InvestmentStatus { get; set; }
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace OnionInvesto.Core.Models.Entities
+namespace OnionInvesto.Core.Entities
 {
     public class UserRole : BaseEntity
     {
@@ -8,9 +8,9 @@ namespace OnionInvesto.Core.Models.Entities
 
         public Role Role { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
-        public int RoleId { get; set; }
+        public Guid RoleId { get; set; }
 
     }
 }

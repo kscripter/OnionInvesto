@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OnionInvesto.Core.Models.Entities
+namespace OnionInvesto.Core.Entities
 {
     public class User : BaseEntity
     {

@@ -9,7 +9,6 @@
     <ProjectReference Include="..\OnionInvesto.Data\OnionInvesto.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
     <Folder Include="Services\" />
   </ItemGroup>
 </Project>

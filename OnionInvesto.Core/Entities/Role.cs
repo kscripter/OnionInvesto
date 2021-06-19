@@ -1,13 +1,9 @@
 ﻿using System;
-namespace OnionInvesto.Core.Models.Entities
+namespace OnionInvesto.Core.Entities
 {
     public class Role : BaseEntity
     {
-
         public string Name { get; set; }
-
-
-
 
     }
 }

@@ -21,5 +21,5 @@ namespace OnionInvesto.Domain.Repositories
             return await DbContext.Users.SingleOrDefaultAsync(e => e.Email == email);
         }
     }
-    }
+
 }

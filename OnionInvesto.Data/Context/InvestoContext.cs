@@ -46,7 +46,7 @@ namespace OnionInvesto.Data.Context
                     .IsRequired();
                 i.Property(p => p.Address).HasColumnType("varchar(250)")
                     .IsRequired();
-               
+
                 i.HasMany(p => p.InvestorBanks)
                     .WithOne(p => p.Investor)
                     .HasForeignKey(p => p.InvestorId);
@@ -72,6 +72,79 @@ namespace OnionInvesto.Data.Context
                 i.HasOne(p => p.Investor)
                     .WithMany(p => p.Investments)
                     .HasForeignKey(p => p.InvestorId).OnDelete(DeleteBehavior.Restrict);
+            });
+
+
+
+            modelBuilder.Entity<InvestmentType>(i =>
+            {
+                i.ToTable("investmentTypes");
+                i.HasKey(p => p.Id);
+                i.Property(p => p.Name).HasColumnType("varchar(50)")
+                    .IsRequired();
+                i.Property(p => p.MinimumAmount).HasColumnType("decimal(18,6)")
+                    .IsRequired();
+
+                i.Property(p => p.MaximumAmount).HasColumnType("decimal(18,6)")
+                    .IsRequired();
+
+                i.Property(p => p.Rate).HasColumnType("varchar(50)")
+                    .IsRequired();
+
+                i.HasMany(p => p.Investments)
+                    .WithOne(p => p.InvestmentType)
+                    .HasForeignKey(p => p.InvestmentTypeId);
+
+            });
+
+
+
+            modelBuilder.Entity<InvestorBank>(i =>
+            {
+                i.ToTable("investorBanks");
+                i.HasKey(p => p.Id);
+                i.Property(p => p.AccountName).HasColumnType("varchar(50)")
+                    .IsRequired();
+                i.Property(p => p.AccountNumber).HasColumnType("varchar(50)")
+                    .IsRequired();
+
+                i.HasOne(p => p.Investor)
+                   .WithMany(p => p.InvestorBanks)
+                   .HasForeignKey(p => p.InvestorId).OnDelete(DeleteBehavior.Restrict);
+
+                i.HasOne(p => p.Bank)
+                   .WithMany(p => p.InvestorBanks)
+                   .HasForeignKey(p => p.BankId).OnDelete(DeleteBehavior.Restrict);
+
+            });
+
+            modelBuilder.Entity<Role>(r =>
+            {
+                r.ToTable("roles");
+                r.HasKey(p => p.Id);
+                r.Property(p => p.Name).HasColumnType("varchar(50)")
+                    .IsRequired();
+
+                r.HasMany(p => p.UserRoles)
+                    .WithOne(p => p.Role)
+                    .HasForeignKey(p => p.UserId);
+            });
+
+
+
+            modelBuilder.Entity<User>(i =>
+            {
+                i.ToTable("users");
+                i.HasKey(p => p.Id);
+                i.Property(p => p.Email).HasColumnType("varchar(50)")
+                    .IsRequired();
+                i.Property(p => p.PasswordHash).HasColumnType("varchar(50)")
+                    .IsRequired();
+
+                i.HasMany(p => p.UserRoles)
+                   .WithOne(p => p.User);
+
+
             });
 
 
